@@ -13,6 +13,26 @@ agentscope scan /path/to/workspace --html
 
 只有在你需要 Codex Skill、Claude Code command、Cursor rule 或其他 agent-specific wrapper 时，才需要这个仓库。
 
+## 安装顺序
+
+这个仓库里的 Skill/wrapper 不会自动静默安装全局命令。推荐使用顺序是：
+
+1. 先安装核心 CLI。
+
+```bash
+npm install -g github:WangHopeDream/agentscope
+```
+
+2. 确认 CLI 可用。
+
+```bash
+agentscope scan /path/to/workspace --html
+```
+
+3. 再把本仓库里的 Skill/wrapper 安装到对应项目或 agent 环境里。
+
+安装完成后，Skill/wrapper 只是负责告诉 agent 什么时候调用 `agentscope`、如何选择项目根目录、如何解释生成的 JSON/HTML 报告。真正的扫描和报告生成仍然由核心 CLI 完成。
+
 ## 国际化
 
 默认中文，英文说明附在本 README 下半部分。包装层后续也应该遵循同样规则：
@@ -59,6 +79,26 @@ agentscope scan /path/to/workspace --html
 ```
 
 Use this repository only when adding a Codex Skill, Claude Code command, Cursor rule, or other agent-specific wrapper around the CLI.
+
+## Installation Order
+
+The skills and wrappers in this repository do not silently install a global command. Recommended setup:
+
+1. Install the core CLI first.
+
+```bash
+npm install -g github:WangHopeDream/agentscope
+```
+
+2. Confirm the CLI works.
+
+```bash
+agentscope scan /path/to/workspace --html
+```
+
+3. Then install the Skill/wrapper from this repository into the target project or agent environment.
+
+After installation, the Skill/wrapper tells the agent when to call `agentscope`, how to choose the workspace root, and how to interpret the generated JSON/HTML report. The core CLI still performs the actual scan and report generation.
 
 ## Internationalization
 
