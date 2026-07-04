@@ -1,5 +1,7 @@
 # AgentScope Skills
 
+想安装 AgentScope Skill？把这个链接发给你的 Agent，并告诉它“请按 README 安装 AgentScope Skill”：`https://github.com/WangHopeDream/agentscope-skills`。
+
 AgentScope Skills 是 AgentScope CLI 的 agent-specific 包装仓库。
 
 核心扫描器属于 `agentscope` 仓库。本仓库只描述不同 agent 应该在什么场景调用 AgentScope、如何调用 CLI、以及如何解释输出结果。
@@ -22,6 +24,40 @@ codex/agentscope-scan/
 ```
 
 把这个目录复制到目标项目的 `.agents/skills/agentscope-scan/`，或复制到用户级 Codex Skills 目录，即可让 Codex 识别 `$agentscope-scan`。
+
+## 发给 Agent 的安装提示
+
+你可以直接把下面这段话发给你的 Agent：
+
+```text
+请安装 AgentScope Skill。
+
+Skill 仓库：
+https://github.com/WangHopeDream/agentscope-skills
+
+请先安装核心 CLI：
+npm install -g github:WangHopeDream/agentscope
+
+然后根据当前 Agent 平台，把 Skill/wrapper 安装到正确位置：
+- Codex 项目级：<project>/.agents/skills/agentscope-scan/
+- Codex 用户级：~/.codex/skills/agentscope-scan/ 或 ~/.agents/skills/agentscope-scan/
+- Claude Code 项目级：<project>/.claude/commands/agentscope-scan.md（待 wrapper 补齐）
+- Claude Code 用户级：~/.claude/commands/agentscope-scan.md（待 wrapper 补齐）
+- Cursor 项目级：<project>/.cursor/rules/agentscope.mdc（待 wrapper 补齐）
+
+安装后，请运行：
+agentscope scan <workspace-root> --html --lang zh
+```
+
+## 平台安装位置
+
+| 平台 | 当前状态 | 推荐安装位置 |
+| --- | --- | --- |
+| Codex 项目级 | 已支持 | `<project>/.agents/skills/agentscope-scan/` |
+| Codex 用户级 | 已支持 | `~/.codex/skills/agentscope-scan/` 或 `~/.agents/skills/agentscope-scan/` |
+| Claude Code 项目级 | wrapper 待补齐 | `<project>/.claude/commands/agentscope-scan.md` |
+| Claude Code 用户级 | wrapper 待补齐 | `~/.claude/commands/agentscope-scan.md` |
+| Cursor 项目级 | wrapper 待补齐 | `<project>/.cursor/rules/agentscope.mdc` |
 
 ## 安装顺序
 
@@ -88,6 +124,8 @@ Agent-specific wrapper
 
 # AgentScope Skills
 
+Want to install the AgentScope Skill? Send this link to your agent and say: "Please install the AgentScope Skill according to the README": `https://github.com/WangHopeDream/agentscope-skills`.
+
 AgentScope Skills contains agent-specific wrappers, skills, commands, and usage templates for the AgentScope CLI.
 
 The core scanner belongs in the `agentscope` repository. This repository should only describe when and how different agents call AgentScope, and how they should interpret its outputs.
@@ -110,6 +148,40 @@ codex/agentscope-scan/
 ```
 
 Copy that directory to `.agents/skills/agentscope-scan/` in the target project, or to a user-level Codex Skills directory, so Codex can discover `$agentscope-scan`.
+
+## Prompt To Send To Your Agent
+
+You can send this directly to your agent:
+
+```text
+Please install the AgentScope Skill.
+
+Skill repository:
+https://github.com/WangHopeDream/agentscope-skills
+
+First install the core CLI:
+npm install -g github:WangHopeDream/agentscope
+
+Then install the Skill/wrapper for the current agent platform:
+- Codex project-level: <project>/.agents/skills/agentscope-scan/
+- Codex user-level: ~/.codex/skills/agentscope-scan/ or ~/.agents/skills/agentscope-scan/
+- Claude Code project-level: <project>/.claude/commands/agentscope-scan.md (wrapper pending)
+- Claude Code user-level: ~/.claude/commands/agentscope-scan.md (wrapper pending)
+- Cursor project-level: <project>/.cursor/rules/agentscope.mdc (wrapper pending)
+
+After installation, run:
+agentscope scan <workspace-root> --html --lang zh
+```
+
+## Platform Install Locations
+
+| Platform | Current status | Recommended location |
+| --- | --- | --- |
+| Codex project-level | Supported | `<project>/.agents/skills/agentscope-scan/` |
+| Codex user-level | Supported | `~/.codex/skills/agentscope-scan/` or `~/.agents/skills/agentscope-scan/` |
+| Claude Code project-level | wrapper pending | `<project>/.claude/commands/agentscope-scan.md` |
+| Claude Code user-level | wrapper pending | `~/.claude/commands/agentscope-scan.md` |
+| Cursor project-level | wrapper pending | `<project>/.cursor/rules/agentscope.mdc` |
 
 ## Installation Order
 
