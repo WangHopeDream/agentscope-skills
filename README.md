@@ -15,15 +15,22 @@ agentscope scan /path/to/workspace --html
 
 只有在你需要 Codex Skill、Claude Code command、Cursor rule 或其他 agent-specific wrapper 时，才需要这个仓库。
 
-当前已经包含一个真实 Codex Skill：
+当前已经包含 Codex、Claude Code、Cursor 三类 wrapper：
 
 ```text
 codex/agentscope-scan/
   SKILL.md
   agents/openai.yaml
+claude-code/agentscope-scan/
+  SKILL.md
+claude-code/agentscope-scan.md
+cursor/skills/agentscope-scan/
+  SKILL.md
+cursor/rules/agentscope.mdc
+cursor/commands/agentscope-scan.md
 ```
 
-把这个目录复制到目标项目的 `.agents/skills/agentscope-scan/`，或复制到用户级 Codex Skills 目录，即可让 Codex 识别 `$agentscope-scan`。
+把对应目录或文件复制到目标 agent 平台的推荐位置，即可让 agent 在需要时调用 `agentscope`。
 
 ## 发给 Agent 的安装提示
 
@@ -41,9 +48,10 @@ npm install -g github:WangHopeDream/agentscope
 然后根据当前 Agent 平台，把 Skill/wrapper 安装到正确位置：
 - Codex 项目级：<project>/.agents/skills/agentscope-scan/
 - Codex 用户级：~/.codex/skills/agentscope-scan/ 或 ~/.agents/skills/agentscope-scan/
-- Claude Code 项目级：<project>/.claude/commands/agentscope-scan.md（待 wrapper 补齐）
-- Claude Code 用户级：~/.claude/commands/agentscope-scan.md（待 wrapper 补齐）
-- Cursor 项目级：<project>/.cursor/rules/agentscope.mdc（待 wrapper 补齐）
+- Claude Code 项目级：<project>/.claude/skills/agentscope-scan/，可选 <project>/.claude/commands/agentscope-scan.md
+- Claude Code 用户级：~/.claude/skills/agentscope-scan/，可选 ~/.claude/commands/agentscope-scan.md
+- Cursor 项目级：<project>/.cursor/skills/agentscope-scan/，可选 <project>/.cursor/rules/agentscope.mdc 和 <project>/.cursor/commands/agentscope-scan.md
+- Cursor 用户级：~/.cursor/skills/agentscope-scan/
 
 安装后，请运行：
 agentscope scan <workspace-root> --html --lang zh
@@ -55,9 +63,10 @@ agentscope scan <workspace-root> --html --lang zh
 | --- | --- | --- |
 | Codex 项目级 | 已支持 | `<project>/.agents/skills/agentscope-scan/` |
 | Codex 用户级 | 已支持 | `~/.codex/skills/agentscope-scan/` 或 `~/.agents/skills/agentscope-scan/` |
-| Claude Code 项目级 | wrapper 待补齐 | `<project>/.claude/commands/agentscope-scan.md` |
-| Claude Code 用户级 | wrapper 待补齐 | `~/.claude/commands/agentscope-scan.md` |
-| Cursor 项目级 | wrapper 待补齐 | `<project>/.cursor/rules/agentscope.mdc` |
+| Claude Code 项目级 | 已支持 | `<project>/.claude/skills/agentscope-scan/`，可选 `<project>/.claude/commands/agentscope-scan.md` |
+| Claude Code 用户级 | 已支持 | `~/.claude/skills/agentscope-scan/`，可选 `~/.claude/commands/agentscope-scan.md` |
+| Cursor 项目级 | 已支持 | `<project>/.cursor/skills/agentscope-scan/`，可选 `<project>/.cursor/rules/agentscope.mdc` |
+| Cursor 用户级 | 已支持 | `~/.cursor/skills/agentscope-scan/` |
 
 ## 安装顺序
 
@@ -118,7 +127,7 @@ Agent-specific wrapper
 
 ## 当前状态
 
-早期 bootstrap。第一个 wrapper 会在核心 CLI 边界稳定后，从现有 `project-workflow-map` Codex Skill 中抽取。
+早期 bootstrap。当前已提供 Codex Skill、Claude Code Skill/command、Cursor Skill/rule/command，全部调用核心 AgentScope CLI，不内置扫描逻辑。
 
 ---
 
@@ -139,15 +148,22 @@ agentscope scan /path/to/workspace --html
 
 Use this repository only when adding a Codex Skill, Claude Code command, Cursor rule, or other agent-specific wrapper around the CLI.
 
-This repository currently includes a real Codex Skill:
+This repository currently includes wrappers for Codex, Claude Code, and Cursor:
 
 ```text
 codex/agentscope-scan/
   SKILL.md
   agents/openai.yaml
+claude-code/agentscope-scan/
+  SKILL.md
+claude-code/agentscope-scan.md
+cursor/skills/agentscope-scan/
+  SKILL.md
+cursor/rules/agentscope.mdc
+cursor/commands/agentscope-scan.md
 ```
 
-Copy that directory to `.agents/skills/agentscope-scan/` in the target project, or to a user-level Codex Skills directory, so Codex can discover `$agentscope-scan`.
+Copy the relevant directory or file into the target agent platform's recommended location so the agent can call `agentscope` when needed.
 
 ## Prompt To Send To Your Agent
 
@@ -165,9 +181,10 @@ npm install -g github:WangHopeDream/agentscope
 Then install the Skill/wrapper for the current agent platform:
 - Codex project-level: <project>/.agents/skills/agentscope-scan/
 - Codex user-level: ~/.codex/skills/agentscope-scan/ or ~/.agents/skills/agentscope-scan/
-- Claude Code project-level: <project>/.claude/commands/agentscope-scan.md (wrapper pending)
-- Claude Code user-level: ~/.claude/commands/agentscope-scan.md (wrapper pending)
-- Cursor project-level: <project>/.cursor/rules/agentscope.mdc (wrapper pending)
+- Claude Code project-level: <project>/.claude/skills/agentscope-scan/, optional <project>/.claude/commands/agentscope-scan.md
+- Claude Code user-level: ~/.claude/skills/agentscope-scan/, optional ~/.claude/commands/agentscope-scan.md
+- Cursor project-level: <project>/.cursor/skills/agentscope-scan/, optional <project>/.cursor/rules/agentscope.mdc and <project>/.cursor/commands/agentscope-scan.md
+- Cursor user-level: ~/.cursor/skills/agentscope-scan/
 
 After installation, run:
 agentscope scan <workspace-root> --html --lang zh
@@ -179,9 +196,10 @@ agentscope scan <workspace-root> --html --lang zh
 | --- | --- | --- |
 | Codex project-level | Supported | `<project>/.agents/skills/agentscope-scan/` |
 | Codex user-level | Supported | `~/.codex/skills/agentscope-scan/` or `~/.agents/skills/agentscope-scan/` |
-| Claude Code project-level | wrapper pending | `<project>/.claude/commands/agentscope-scan.md` |
-| Claude Code user-level | wrapper pending | `~/.claude/commands/agentscope-scan.md` |
-| Cursor project-level | wrapper pending | `<project>/.cursor/rules/agentscope.mdc` |
+| Claude Code project-level | Supported | `<project>/.claude/skills/agentscope-scan/`, optional `<project>/.claude/commands/agentscope-scan.md` |
+| Claude Code user-level | Supported | `~/.claude/skills/agentscope-scan/`, optional `~/.claude/commands/agentscope-scan.md` |
+| Cursor project-level | Supported | `<project>/.cursor/skills/agentscope-scan/`, optional `<project>/.cursor/rules/agentscope.mdc` |
+| Cursor user-level | Supported | `~/.cursor/skills/agentscope-scan/` |
 
 ## Installation Order
 
@@ -242,4 +260,4 @@ Agent-specific wrapper
 
 ## Status
 
-Early bootstrap. The first wrapper will be extracted from the existing `project-workflow-map` Codex skill after the CLI boundary is defined.
+Early bootstrap. The repository now includes a Codex Skill, Claude Code Skill/command, and Cursor Skill/rule/command. All wrappers call the core AgentScope CLI instead of embedding scanner logic.

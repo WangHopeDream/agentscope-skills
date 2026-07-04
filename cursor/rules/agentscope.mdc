@@ -1,0 +1,16 @@
+---
+description: Use AgentScope when the user asks to inspect, map, refresh, or explain an agent-native workspace.
+alwaysApply: false
+---
+
+# AgentScope
+
+When the user asks for an AgentScope report or agent workspace inspection:
+
+- Confirm the AgentScope CLI is installed with `agentscope --version`.
+- If missing, tell the user before running `npm install -g github:WangHopeDream/agentscope`.
+- Run `agentscope scan <workspace-root> --html --lang zh` for an interactive report.
+- Use `--project-only` when the user wants project-local files only.
+- Return the generated report path and summarize adapters, rules, skills, commands, configs, diagnostics, and child repositories.
+
+Do not reimplement the scanner in the rule. The core CLI owns scanning and rendering.
