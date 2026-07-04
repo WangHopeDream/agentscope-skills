@@ -1,0 +1,4 @@
+interface:
+  display_name: "AgentScope Scan"
+  short_description: "Install, update, and run AgentScope workspace reports"
+  default_prompt: "Use $agentscope-scan to inspect this workspace and generate an AgentScope HTML report."

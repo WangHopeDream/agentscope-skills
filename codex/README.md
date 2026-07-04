@@ -1,6 +1,27 @@
 # Codex
 
-Codex-specific AgentScope wrappers will live here.
+这里存放 Codex-specific AgentScope wrappers。
+
+当前可用 Skill：
+
+```text
+agentscope-scan/
+  SKILL.md
+  agents/openai.yaml
+```
+
+安装方式：
+
+```bash
+mkdir -p /path/to/project/.agents/skills
+cp -R codex/agentscope-scan /path/to/project/.agents/skills/agentscope-scan
+```
+
+然后在 Codex 里使用：
+
+```text
+Use $agentscope-scan to inspect this workspace.
+```
 
 ## 安装顺序
 
@@ -24,11 +45,32 @@ agentscope --version
 
 执行前应该说明这是一次全局 npm 命令更新。
 
-第一版目标是把现有 `project-workflow-map` Skill 迁移成一个轻量 wrapper：调用 AgentScope CLI，而不是在 Skill 里嵌入所有扫描和渲染逻辑。
+这个 Skill 是轻量 wrapper：调用 AgentScope CLI，而不是在 Skill 里嵌入所有扫描和渲染逻辑。
 
 ---
 
-Codex-specific AgentScope wrappers will live here.
+Codex-specific AgentScope wrappers live here.
+
+Available Skill:
+
+```text
+agentscope-scan/
+  SKILL.md
+  agents/openai.yaml
+```
+
+Install it into a project:
+
+```bash
+mkdir -p /path/to/project/.agents/skills
+cp -R codex/agentscope-scan /path/to/project/.agents/skills/agentscope-scan
+```
+
+Then ask Codex:
+
+```text
+Use $agentscope-scan to inspect this workspace.
+```
 
 ## Installation Order
 
@@ -52,6 +94,4 @@ agentscope --version
 
 Before running it, Codex should explain that this updates a global npm command.
 
-The first target is a portable version of the current `project-workflow-map`
-skill that calls the AgentScope CLI instead of embedding all scanner logic in a
-single skill script.
+This Skill is a thin wrapper: it calls the AgentScope CLI instead of embedding all scanner and renderer logic inside the Skill.

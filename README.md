@@ -13,6 +13,16 @@ agentscope scan /path/to/workspace --html
 
 只有在你需要 Codex Skill、Claude Code command、Cursor rule 或其他 agent-specific wrapper 时，才需要这个仓库。
 
+当前已经包含一个真实 Codex Skill：
+
+```text
+codex/agentscope-scan/
+  SKILL.md
+  agents/openai.yaml
+```
+
+把这个目录复制到目标项目的 `.agents/skills/agentscope-scan/`，或复制到用户级 Codex Skills 目录，即可让 Codex 识别 `$agentscope-scan`。
+
 ## 安装顺序
 
 这个仓库里的 Skill/wrapper 不会自动静默安装全局命令。推荐使用顺序是：
@@ -90,6 +100,16 @@ agentscope scan /path/to/workspace --html
 ```
 
 Use this repository only when adding a Codex Skill, Claude Code command, Cursor rule, or other agent-specific wrapper around the CLI.
+
+This repository currently includes a real Codex Skill:
+
+```text
+codex/agentscope-scan/
+  SKILL.md
+  agents/openai.yaml
+```
+
+Copy that directory to `.agents/skills/agentscope-scan/` in the target project, or to a user-level Codex Skills directory, so Codex can discover `$agentscope-scan`.
 
 ## Installation Order
 
