@@ -33,6 +33,17 @@ agentscope scan /path/to/workspace --html
 
 安装完成后，Skill/wrapper 只是负责告诉 agent 什么时候调用 `agentscope`、如何选择项目根目录、如何解释生成的 JSON/HTML 报告。真正的扫描和报告生成仍然由核心 CLI 完成。
 
+## 更新核心 CLI
+
+如果用户让 agent 更新 AgentScope CLI，推荐让 agent 执行：
+
+```bash
+npm install -g github:WangHopeDream/agentscope
+agentscope --version
+```
+
+这会从 GitHub 重新安装最新版本。因为这是全局 npm 安装，agent 应该在执行前明确告诉用户会修改本机全局命令。
+
 ## 国际化
 
 默认中文，英文说明附在本 README 下半部分。包装层后续也应该遵循同样规则：
@@ -99,6 +110,17 @@ agentscope scan /path/to/workspace --html
 3. Then install the Skill/wrapper from this repository into the target project or agent environment.
 
 After installation, the Skill/wrapper tells the agent when to call `agentscope`, how to choose the workspace root, and how to interpret the generated JSON/HTML report. The core CLI still performs the actual scan and report generation.
+
+## Updating The Core CLI
+
+If the user asks the agent to update AgentScope CLI, the recommended command is:
+
+```bash
+npm install -g github:WangHopeDream/agentscope
+agentscope --version
+```
+
+This reinstalls the latest version from GitHub. Because this changes a global npm command, the agent should clearly tell the user before running it.
 
 ## Internationalization
 
